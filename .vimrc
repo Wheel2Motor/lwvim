@@ -1,5 +1,5 @@
 " ******************************************************************************
-"                           Naked VIM
+"                           LW VIM
 "     A lightweight VIM configuration with no plugin for fast and easy editing.
 " ******************************************************************************
 
@@ -25,6 +25,8 @@ source $VIMRUNTIME/vimrc_example.vim
 " ==============================================================================
 " 显示行号
 set nu
+" 不折行
+set nowrap
 " 高亮搜索
 set hls
 " 显示行、列号
@@ -103,10 +105,18 @@ nmap <M-S> :w<CR>
 imap <C-S> <ESC>:w<CR>
 " Command S保存
 imap <M-S> <ESC>:w<CR>
-" Control A行首（仿Emacs）
-imap <C-A> <ESC>I
-" Control E行尾（仿Emacs）
-imap <C-E> <ESC>$a
+" " Control A行首（仿Emacs）
+" imap <C-A> <ESC>I
+" " Control E行尾（仿Emacs）
+" imap <C-E> <ESC>$a
+" " Control F前进（仿Emacs）
+" imap <C-F> <ESC>la
+" " Control B后退（仿Emacs）
+" imap <C-B> <ESC>ha
+" " Control K删除后续（仿Emacs）
+" imap <C-K> <ESC>lC
+" " Control Shift :进入命令模式
+" imap <C-S-:> <ESC>:
 
 
 " ==============================================================================
@@ -153,7 +163,7 @@ function Windows_Diff()
 endfunction
 
 
-" function! NVF_IncreaseFontSize()
+" function! LWF_IncreaseFontSize()
 " 	let l:fnt = &guifont
 " 	let l:arr = split(l:fnt, ':')
 " 	let l:sz = split(arr[1], "h")[0]
@@ -171,3 +181,88 @@ endfunction
 " 	endfor
 " 	return l:res
 " endfunction
+
+
+" function! LWF_DecreaseFontSize()
+" 	let l:fnt = &guifont
+" 	let l:arr = split(l:fnt, ':')
+" 	let l:sz = split(arr[1], "h")[0]
+" 	let l:res = ""
+" 	for i in range(len(arr))
+" 		if i > 0
+" 			let l:res = l:res . ":"
+" 		endif
+" 		if i == 1
+" 			let l:nsz = l:sz - 1
+" 			let l:res = l:res . l:nsz
+" 			continue
+" 		endif
+" 		let l:res = l:res . l:arr[i]
+" 	endfor
+" 	return l:res
+" endfunction
+
+
+function LWF_Tabify()
+endfunction
+
+
+function LWF_Untabify()
+endfunction
+
+
+" ==============================================================================
+"                           Vim Plug
+" ==============================================================================
+function LWF_InitVimPlug()
+	if has("windows")
+		let l:command = "\"iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni $HOME/vimfiles/autoload/plug.vim -Force\""
+		execute("!powershell -noprofile -command " . l:command)
+	else
+		let l:command = "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+		execute("!" . l:command)
+	endif
+endfunction
+call LWF_InitVimPlug()
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" " Using a non-default branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+
+" ==============================================================================
+" NERDTree
+" ==============================================================================
+Plug 'preservim/nerdtree'
+
+
+" ==============================================================================
+" 模糊查找
+" ==============================================================================
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+
+" ==============================================================================
+" 单词高亮
+" f<CR> 新增高亮
+" f<BS> 删除高亮
+" f<C-L>清除高亮
+" ==============================================================================
+Plug 'azabiong/vim-highlighter'
+
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
