@@ -1,0 +1,8 @@
+" 关闭菜单栏
+set guioptions-=m
+" 关闭工具栏
+set guioptions-=T
+" 关闭右侧滚动条
+set guioptions-=R
+" 关闭左侧滚动条
+set guioptions-=L

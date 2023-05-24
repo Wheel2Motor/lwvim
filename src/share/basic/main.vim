@@ -43,9 +43,3 @@ set noexpandtab
 filetype plugin on
 " 根据文件类型决定缩进
 filetype indent on
-" 关闭菜单栏
-set guioptions-=m
-" 关闭工具栏
-set guioptions-=T
-" 关闭滚动条
-set guioptions-=r
