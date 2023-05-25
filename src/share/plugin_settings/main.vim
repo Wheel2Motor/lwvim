@@ -32,3 +32,9 @@ let g:airline_theme='onedark'
 " 同步NERDTree到当前编辑文件
 let g:nerdtree_sync_cursorline = 1
 let g:NERDTreeHighlightCursorline = 1
+
+
+" ------------------------------------------------------------------------------
+" fzf
+nmap <C-P> :FZF
+imap <C-P> <ESC>:FZF

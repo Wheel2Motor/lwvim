@@ -125,3 +125,8 @@ Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 " vim-git
 " 显示Git commit日志的高亮
 Plug 'tpope/vim-git'
+
+
+" ------------------------------------------------------------------------------
+" supertab
+Plug 'https://github.com/ervandew/supertab.git'
