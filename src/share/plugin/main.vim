@@ -1,44 +1,10 @@
 " ******************************************************************************
 " ******************************************************************************
 "
-"                           VIM Plug
+"                           Share Plugin
 "
 " ******************************************************************************
 " ******************************************************************************
-
-
-" Auto install Vim-Plug
-function LWF_InitVimPlug()
-	" Windows
-	if has('windows')
-		if !filereadable(expand('~/vimfiles/autoload/plug.vim'))
-			let l:command = '\"iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |` ni $HOME/vimfiles/autoload/plug.vim -Force\"'
-			execute('!powershell -noprofile -command ' . l:command)
-		endif
-	" Unix-Like
-	else
-		if !filereadable(expand('~/.vim/autoload/plug.vim'))
-			let l:command = 'curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-			execute('!' . l:command)
-		endif
-	endif
-endfunction
-call LWF_InitVimPlug()
-
-
-call plug#begin()
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
-
-" Make sure you use single quotes
-
-" " Using a non-default branch
-" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 
 " ------------------------------------------------------------------------------
@@ -159,49 +125,3 @@ Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 " vim-git
 " 显示Git commit日志的高亮
 Plug 'tpope/vim-git'
-
-
-" Initialize plugin system
-" - Automatically executes `filetype plugin indent on` and `syntax enable`.
-call plug#end()
-" You can revert the settings after the call like so:
-"   filetype indent off   " Disable file-type-specific indentation
-"   syntax off            " Disable syntax highlighting
-
-
-
-" ------------------------------------------------------------------------------
-" Plugin settings
-" vim-airline
-let g:airline_theme='alduin'
-
-
-" ------------------------------------------------------------------------------
-" Plugin settings
-" vim-smooth_scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll*2, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
-
-" ------------------------------------------------------------------------------
-" Plugin settings
-" rainbow
-" Set to 0 if you want to enable it later via :RainbowToggle
-let g:rainbow_active = 1
-
-
-" ------------------------------------------------------------------------------
-" Plugin settings
-" onedark
-colorscheme onedark
-let g:airline_theme='onedark'
-
-
-" ------------------------------------------------------------------------------
-" Plugin settings
-" vim-nerdtree-sync
-" 同步NERDTree到当前编辑文件
-let g:nerdtree_sync_cursorline = 1
-let g:NERDTreeHighlightCursorline = 1

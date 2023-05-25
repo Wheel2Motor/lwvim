@@ -43,3 +43,5 @@ set noexpandtab
 filetype plugin on
 " 根据文件类型决定缩进
 filetype indent on
+" 分屏往右下角分
+set splitbelow splitright
