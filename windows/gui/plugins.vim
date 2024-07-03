@@ -82,20 +82,15 @@ call plug#begin()
 	}
 	# }}}
 
-	# {{{ 语法检查相关插件
-	{
-		{
-			# ale 语法检查
-			Plug 'https://github.com/dense-analysis/ale.git'
-		}
-	}
-	# }}}
-
 	# {{{ 自动补全相关插件
 	{
 		{
 			# supertab 允许利用tab键完成自动补全
 			Plug 'https://github.com/ervandew/supertab.git'
+		}
+		{
+			# jedi
+			Plug 'https://github.com/davidhalter/jedi-vim.git'
 		}
 	}
 	# }}}
@@ -133,12 +128,26 @@ call plug#begin()
 	}
 	# }}}
 
+	# {{{ 日志类插件
+	{
+	}
+	# }}}
+
 	# {{{ 未分类
 	{
 		{
 			# vim-sensible 加载大多数人都会赞同的默认设定
 			# 这个设定是在vimrc加载之后才会加载的
 			Plug 'tpope/vim-sensible'
+		}
+	}
+	# }}}
+
+	# {{{ 异步
+	{
+		{
+			# asyncrun 异步命令
+			Plug 'skywind3000/asyncrun.vim'
 		}
 	}
 	# }}}

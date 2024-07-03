@@ -6,8 +6,12 @@ $LANG = 'en_US'
 set langmenu=en_US
 # 修改VIM内部字符编码为UTF8
 set encoding=utf-8
+# 修改VIM打开文件时自动识别编码的顺序
+set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
 # 加载VIM内部示例，实例中包含了平台的默认设置
 source $VIMRUNTIME/vimrc_example.vim
+# 命令行高度给2
+set cmdheight=2
 # 启用语法高亮
 syntax on
 # 启用文件类型自动检测
@@ -66,3 +70,4 @@ augroup vim
 	autocmd!
 	autocmd FileType vim set foldmethod=marker
 augroup END
+

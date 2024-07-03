@@ -1,6 +1,9 @@
 vim9script
 
 
+set nocompatible
+
+
 def g:LWInitCache(): dict<string>
 	# {{{ 初始化配置缓存文件
 	if !isdirectory(g:LW_CACHEDIR)
@@ -100,6 +103,7 @@ def g:LWInit()
 	final g:LW_RC_PLUGINS: string    = $'{g:LW_HOME}{sep}plugins.vim'
 	final g:LW_RC_PLUGINOPTS: string = $'{g:LW_HOME}{sep}pluginopts.vim'
 	final g:LW_RC_FUNCLIB: string    = $'{g:LW_HOME}{sep}funclib.vim'
+	final g:LW_RC_FUNCLIB9: string   = $'{g:LW_HOME}{sep}funclib9.vim'
 	final g:LW_RC_COMMANDS: string   = $'{g:LW_HOME}{sep}commands.vim'
 	final g:LW_RC_KEYMAP: string     = $'{g:LW_HOME}{sep}keymap.vim'
 	# }}}2
@@ -124,5 +128,6 @@ g:LWLoadRC(g:LW_RC_BASE)
 g:LWLoadRC(g:LW_RC_PLUGINS)
 g:LWLoadRC(g:LW_RC_PLUGINOPTS)
 g:LWLoadRC(g:LW_RC_FUNCLIB)
+g:LWLoadRC(g:LW_RC_FUNCLIB9)
 g:LWLoadRC(g:LW_RC_COMMANDS)
 g:LWLoadRC(g:LW_RC_KEYMAP)

@@ -60,29 +60,15 @@ vim9script
 	}
 	# }}}
 
-	# {{{ 语法检查相关插件
-	{
-		{
-			# ale
-			g:ale_completion_enabled = 1
-			g:ale_type_map = {'Warning': ''}
-			g:ale_linters_explicit = 1
-			g:ale_completion_delay = 500
-			g:ale_echo_delay = 20
-			g:ale_lint_delay = 500
-			g:ale_echo_msg_format = '[%linter%] %code: %%s'
-			g:ale_lint_on_text_changed = 'normal'
-			g:ale_lint_on_insert_leave = 1
-			g:ale_python_mypy_options = '--cache-dir ~'
-			g:airline#extensions#ale#enabled = 1
-		}
-	}
-	# }}}
-
 	# {{{ 自动补全相关插件
 	{
 		{
 			# supertab
+		}
+		{
+			g:jadi#auto_initialization = 0
+			g:jedi#popup_on_dot = 0 # 按点号的时候不自动补全，否则太慢
+			g:jedi#show_call_signature = 2 # 在屏幕上显示函数参数列表
 		}
 	}
 	# }}}
