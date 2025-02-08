@@ -23,7 +23,7 @@ filetype indent on
 # 显示行号
 set number
 # 相对行号
-set relativenumber
+# set relativenumber
 # 下方状态栏显示行号、列号
 set ruler
 # 搜索等字符串操作不忽略大小写
@@ -32,6 +32,8 @@ set noic
 set hlsearch
 # 渐进式搜索
 set incsearch
+# 高亮当前行
+set cursorline
 # 错误警告采用闪屏的方式
 set visualbell
 # 不折行
@@ -70,4 +72,3 @@ augroup vim
 	autocmd!
 	autocmd FileType vim set foldmethod=marker
 augroup END
-

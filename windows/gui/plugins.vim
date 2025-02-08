@@ -25,6 +25,10 @@ call plug#begin()
 			Plug 'https://github.com/ku1ik/vim-monokai.git'
 		}
 		{
+			# Monokai主题
+			Plug 'dracula/dracula-theme'
+		}
+		{
 			# Ondark主题
 			Plug 'joshdick/onedark.vim'
 		}
